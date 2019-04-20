@@ -1,0 +1,26 @@
+<div style="background-color: azure; border-radius: 10px; border: 1px solid #808080; width: 100%; " >
+  <div style="display: inline-block; padding-right: 20px; padding-left: 10px;">
+      <input type="radio" name="susp_crit_filter" id="filter_all" value="all" checked="checked" (change)="onFilterBy('all')"/>All suspect criterias
+
+  </div>
+  <div style="display: inline-block; padding-right:50px; margin-top: 5px; margin-bottom: 10px;">
+    <input type="radio" name="susp_crit_filter" id="data_class" value="data_class" (change)="onFilterBy('data_class')"/>Search for a Data Classification:<br />
+
+    <select #seldcnamefilter [(ngModel)]="sel_dc_name" name="seldcnamefilter" id="seldcnamefilter" style="width:300px; font-family:'Courier New'; font-size:12pt;" (change)="onSelDcNameFilter($event.target.value)" [disabled]="isDisabled()">
+      <option *ngFor="let dc_name_rec of dc_names" [value]="dc_name_rec.dc_name" >
+        {{ dc_name_rec.dc_val }}
+    </option>
+    </select>
+
+  </div>
+  <div style="display: inline-block; margin-top: 10px; margin-bottom: 5px;">
+      <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onFilterSuspectCriteria()" [disabled]="running">Filter Data Classification suspect column criteria</button>
+
+    <!--  <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onTest()" >Test</button> -->
+
+      <div *ngIf="running" style="display: block; margin-top: 5px;">
+        <p-progressBar mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar>
+      </div>
+  </div>
+
+</div>

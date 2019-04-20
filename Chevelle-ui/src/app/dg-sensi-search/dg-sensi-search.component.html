@@ -1,0 +1,67 @@
+<div style="background-color:azure; border-radius: 10px; border: 1px solid #808080; height: 350px">
+
+  <table class="parent">
+      <tr>
+            <!--td class="fixed"><input type="radio" name="dg_filter" id="asms_filter" value="asms_filter" (change)="onFilterBy('asms_id')" />ASMS:&nbsp;</td-->
+            <!--td class="floating"><input [(ngModel)]="asms_id" name='asms_id' type="text" class="text_input" [disabled]="!isDisabled()" /></td-->
+      </tr>      
+      <tr>
+          <td class="fixed"> <!--input type="radio" name="dg_filter" id="db_filter" value="db_filter" checked="checked" (change)="onFilterBy('db_name')" /-->DB name:&nbsp;</td>
+          <td class="floating"><input [(ngModel)]="db_name" name="db_name" type="text" class="text_input" [disabled]="isDisabled()" (change)="onDbNameChange()"/></td>
+      </tr>
+      <tr>
+          <td class="fixed" >Page size:&nbsp;</td>
+          <td>
+              <input type='radio' name='page_size' id='size10' value=10 (change)="page_size_change(10)" checked="checked" /><b>10</b>&nbsp;&nbsp;
+              <input type='radio' name='page_size' id='size20' value=20 (change)="page_size_change(20)" /><b>20</b>&nbsp;&nbsp;
+              <input type='radio' name='page_size' id='size100' value=100  (change)="page_size_change(100)" /><b>100</b>&nbsp;&nbsp;
+          </td>
+      </tr>
+      <tr>
+          <td colspan="2"  >
+
+              <div style="width:15%; display:inline-block; margin-top:15px; margin-bottom:15px;">&nbsp;</div>
+                <div style="display:inline-block;">
+
+                  <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onClickPrevious()" ><< Previous</button>
+                  <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onClickSearch()" >Search</button>
+                  <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onClickNext()" >Next >></button>
+                  <!--  <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onTest()" >Test</button>   -->
+                </div>
+              <div style="display:inline-block;">&nbsp;</div>
+                <div *ngIf="running">
+                    <p-progressBar mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar>
+                </div>
+          </td>
+      </tr>
+      <tr >
+          <td colspan="2" style="text-align:center; background-color: lightgoldenrodyellow; font-family:Verdana; font-size:16px; padding-top:3px;
+          padding-bottom:3px; padding-left:3px; padding-right:3px;">Reviewing records: {{ page_from }} to {{ page_to }} out of {{ dg_total }} </td>
+      </tr>
+  </table>
+
+  <table style="width: 100%">
+    <tr>
+        <td style="width: 90px;">Current page:</td>
+        <td><div [ngClass]="dg_pending_page == 0 ? 'all_reviewed' : 'pending'"  > {{dg_pending_page_msg}} </div></td>
+    </tr>
+    <tr>
+        <td style="width: 90px;">This DB:</td>
+        <td><div [ngClass]="dg_pending_total == 0 ? 'all_reviewed' : 'pending'" > {{dg_pending_total_msg}} </div></td>
+    </tr>    
+  </table>
+
+  
+
+
+  <div style="width:33%; display:inline-block; ">&nbsp;</div>
+    <div style="display:inline-block; margin-top:50px; margin-bottom:15px;">
+
+        <button type="button" style="font-family:Arial; font-size:14pt; font-weight: normal;  border-radius: 3px;" (click)="onSignalElectra() " [disabled]="electra_disabled">Signal Electra</button>
+
+    </div>
+<div style="display:inline-block;">&nbsp;</div>
+
+</div>
+
+

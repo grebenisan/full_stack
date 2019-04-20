@@ -1,0 +1,27 @@
+<p-table [columns]="cols" [value]="sc_list" [resizableColumns]="true" columnResizeMode="expand" [scrollable]="true" scrollHeight="650px" selectionMode="single" [(selection)]="sel_sc_rec" dataKey="id" [loading]="loading" (onRowSelect)="onRowSelect($event)" [style]="{width:'1000px'}">'
+  <ng-template pTemplate="colgroup" let-columns>
+      <colgroup>
+          <col style="width:25%"> <!--col *ngFor="let col of columns" [ngClass]="setColStyleClases(col.field)"-->
+          <col style="width:15%">
+          <col style="width:20%">
+          <col style="width:10%">
+          <col style="width:15%">
+          <col style="width:10%">          
+          <col style="width:5px">
+      </colgroup>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+          <td *ngFor="let col of columns" class="ui-resizable-column" style="font-family: 'Courier New'; font-size: 12pt;"> <!--[ngClass]="setStyleClasses(rowData[col.field])"-->
+              {{rowData[col.field]}}
+          </td>
+      </tr>
+  </ng-template>
+</p-table>

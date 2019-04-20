@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="ui-g">
+  <div class="ui-g-12 ui-g-nopad">
+      <div class="ui-g-4 " >
+        <app-menu-main></app-menu-main>
+      </div>
+
+      <div class="ui-g-8 ui-g-nopad">
+        &nbsp;<img src="assets/chevelle_logo_smaller.jpg" style=" display:inline; ">&nbsp;
+        <img src="assets/hyper_profiling_new.jpg" style=" display:inline;">
+        <img align="right"  src="assets/chevelle_smaller.jpg" style="float:right; display:inline;">
+      </div>
+  </div>
+
+  <div class="ui-g-12 ui-g-nopad" style="color:black; background-color:white;"> 
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+  <div class="ui-g-12 ui-g-nopad" style="background-color: rgb(248, 248, 248)">
+    <span style="font-size: 10pt; color: lightgray;">{{ title }} Current environment: {{ env }}</span>
+  </div>
+</div>

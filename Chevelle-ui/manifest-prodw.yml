@@ -1,0 +1,14 @@
+
+applications:
+- name: chevelle-ui-test
+  path: dist
+  instances: 1
+  buildpack: staticfile_buildpack
+  stack: cflinuxfs2
+  memory: 1G
+  disk_quota: 1G
+  instances: 1
+  timeout: 80
+  routes:
+  - route: chevelle-ui.apps.pcfwi.domain.com
+  - route: chevelle-ui.cpi.domain.com

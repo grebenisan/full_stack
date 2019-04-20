@@ -1,0 +1,115 @@
+
+
+<p-table [columns]="cols" [value]="dg_list" [resizableColumns]="true" columnResizeMode="expand" [scrollable]="true" scrollHeight="400px" selectionMode="single" [(selection)]="selected_col" dataKey="row_cnt" [loading]="loading" (onRowSelect)="onRowSelect($event)" [style]="{width:'1000px'}">'
+  <ng-template pTemplate="colgroup" let-columns>
+      <colgroup>
+          <col *ngFor="let col of columns"  [ngClass]="setColStyleClases(col.field)">
+      </colgroup>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" pResizableColumn >
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+          <td *ngFor="let col of columns" class="ui-resizable-column" [ngClass]="setStyleClasses(rowData[col.field])" >
+              {{rowData[col.field]}}
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<!-- <div>The Update trigger is: {{ debug_upd_trigger }} </div> -->
+<div *ngIf="loading">
+  <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+</div>
+
+
+
+<!--
+  <ng-template pTemplate="header">
+      <tr>
+          <th pResizableColumn>DG Status</th>
+          <th pResizableColumn>Table name</th>
+          <th pResizableColumn>Column name</th>
+          <th pResizableColumn>Data Class</th>
+          <th pResizableColumn>Prof start</th>
+          <th pResizableColumn>Prod end</th>
+          <th pResizableColumn>Total cnt</th>
+          <th pResizableColumn>Sample cnt</th>
+          <th pResizableColumn>Unique cnt</th>
+          <th pResizableColumn>Data Class cnt</th>
+          <th pResizableColumn>Max</th>
+          <th pResizableColumn>Min</th>
+          <th pResizableColumn>Avg</th>
+          <th pResizableColumn>Applied regexp</th>
+          <th pResizableColumn>Column ID</th>
+          <th pResizableColumn>Table ID</th>
+          <th pResizableColumn>Batch ID</th>
+          <th pResizableColumn>Created by</th>
+          <th pResizableColumn>Created TS</th>
+          <th pResizableColumn>DG update by</th>
+          <th pResizableColumn>DG update TS</th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dgrec>
+      <tr>
+          <td class="ui-resizable-column">{{dgrec.dg_status}}</td>
+          <td class="ui-resizable-column">{{dgrec.table_nm}}</td>
+          <td class="ui-resizable-column">{{dgrec.column_nm}}</td>
+          <td class="ui-resizable-column">{{dgrec.data_cls_nm}}</td>
+          <td class="ui-resizable-column">{{dgrec.prof_start_ts}}</td>
+          <td class="ui-resizable-column">{{dgrec.prof_end_ts}}</td>
+          <td class="ui-resizable-column">{{dgrec.tot_row_cnt}}</td>
+          <td class="ui-resizable-column">{{dgrec.sample_row_cnt}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_val_uniq_cnt}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_val_data_cls_cnt}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_max_val}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_min_val}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_avg_len}}</td>
+          <td class="ui-resizable-column">{{dgrec.appl_regex_str}}</td>
+          <td class="ui-resizable-column">{{dgrec.col_id}}</td>
+          <td class="ui-resizable-column">{{dgrec.table_id}}</td>
+          <td class="ui-resizable-column">{{dgrec.batch_id}}</td>
+          <td class="ui-resizable-column">{{dgrec.crt_by}}</td>
+          <td class="ui-resizable-column">{{dgrec.crt_ts}}</td>
+          <td class="ui-resizable-column">{{dgrec.dg_upd_by}}</td>
+          <td class="ui-resizable-column">{{dgrec.dg_upd_ts}}</td>
+
+      </tr>
+  </ng-template>
+
+
+-->
+
+
+
+
+
+<!--
+"dg_status": "DG Status",
+"table_nm": "Table name",
+"column_nm": "Column name",
+"data_cls_nm": "Data Class",
+"prof_start_ts": "Prof start",
+"prof_end_ts": "Prod end",
+"tot_row_cnt": "Total cnt",
+"sample_row_cnt": "Sample cnt",
+"col_val_uniq_cnt": "Unique cnt",
+"col_val_data_cls_cnt": "Data Class cnt",
+"col_max_val": "Max",
+"col_min_val": "Min",
+"col_avg_len": "Avg",
+"appl_regex_str": "Applied regexp",
+"col_id": "Column ID",
+"table_id": "Table ID",
+"batch_id": "Batch ID",
+"crt_by": "Created by",
+"crt_ts": "Created TS",
+"dg_upd_by": "DG update by",
+"dg_upd_ts": "DG update TS"
+-->

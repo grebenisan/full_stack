@@ -1,0 +1,39 @@
+.not_reviewed {
+    background-color: yellow !important;
+    color:black !important;
+}
+
+
+
+.cleared {
+    background-color: greenyellow !important;
+    color: black !important;
+}
+
+.regexp_width {
+    width: 500px;
+    height:100px;
+}
+
+.dg_width {
+    width:75px;
+    height:100px;
+}
+
+.default_width {
+    width:150px;
+    height:100px;
+}
+
+.sensitive {
+background-color: orangered !important;
+color: black !important;
+}
+
+.cleared {
+background-color: lime;
+}
+
+.not_reviewed {
+background-color: yellow;
+}

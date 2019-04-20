@@ -1,0 +1,14 @@
+
+applications:
+- name: chevelle-ui-qa
+  path: dist
+  instances: 1
+  buildpack: staticfile_buildpack
+  stack: cflinuxfs2
+  memory: 1G
+  disk_quota: 1G
+  instances: 1
+  timeout: 80
+  routes:
+  - route: chevelle-ui-qa.apps.pcfepg2wi.domain.com
+  - route: chevelle-ui-qa.cp-epg2i.domain.com

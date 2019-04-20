@@ -1,0 +1,82 @@
+<div style="background-color: azure; border-radius: 10px; border: 1px solid #808080; min-width: 400px; ">
+  <table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
+      <tr>
+          <td style="width: 150px; text-align: right;">Data Class name:</td>
+          <td>
+           <select #seldcname [(ngModel)]="sc_temp_rec.data_cls_nm" name="seldcname" id="seldcname" style="width:270px; font-family:'Courier New'; font-size:12pt;" (change)="onSelDcNameChange($event.target.value)" [disabled]="edit_controls_disable">
+                <option *ngFor="let dc_name_rec of dc_names" [value]="dc_name_rec.dc_name" >
+                    {{ dc_name_rec.dc_val }}
+                </option>
+           </select>
+
+          </td>
+      </tr>
+      <tr>
+          <td style="width: 150px; text-align: right;">SQL match operator:</td>
+          <td>
+            <select #sqlmatchop [(ngModel)]="sc_temp_rec.match_type_opr" name="sqlmatchop" id="sqlmatchop" style="width:270px; font-family:'Courier New'; font-size:12pt;" (change)="onSelSqlMatchOpChange($event.target.value)" [disabled]="edit_controls_disable">
+                <option *ngFor="let match_op_rec of sql_match_ops" [value]="match_op_rec.sql_name" >
+                    {{ match_op_rec.sql_val }}
+                </option>
+            </select>
+          </td>
+      </tr>
+      <tr>
+          <td style="width: 150px; text-align: right;">Column match string:</td>
+          <td style="padding-right: 2px;"><input [(ngModel)]="sc_temp_rec.match_nm" name='match_str' type="text" class="text_input" [disabled]="edit_controls_disable" /></td>
+      </tr>
+      <tr>
+           <td style="padding-top:20px;  padding-left:10%;" colspan="2">
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; width:190px;" [disabled]="edit_disable" (click)="onEdit()">Edit selected record</button>&nbsp;
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" [disabled]="update_disable" (click)="onUpdate()">Update</button>&nbsp;
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" [disabled]="cancel_disable" (click)="onCancel()">Cancel</button>
+
+          </td>
+      </tr>
+      <tr >
+          <td style="padding-top: 10px; padding-left:10%; padding-right:20%" colspan='2'>
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; width:190px;" [disabled]="delete_disable" (click)="onDelete()">Delete selected record</button>
+          </td>
+      </tr>
+      <tr >
+          <td style="padding-top: 10px; padding-left:10%;" colspan='2'>
+              <button type="button" style=" font-family:Arial; font-size:12pt; border-radius: 3px; width:190px;" [disabled]="new_disable" (click)="onNew()">New Suspect Criteria</button>&nbsp;
+              <button type="button" style=" font-family:Arial; font-size:12pt; border-radius: 3px;" [disabled]="new_save_disable" (click)="onNewSave()">Save</button>&nbsp;
+              <button type="button" style=" font-family:Arial; font-size:12pt; border-radius: 3px;" [disabled]="new_cancel_disable" (click)="onNewCancel()">Cancel</button>
+
+          </td>
+      </tr>
+  </table>
+
+  <div *ngIf="running" style="margin-top: 5px; margin-bottom: 5px; margin-left: 5px; margin-right: 5px;">
+    <p-progressBar mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar>
+  </div>
+
+</div>
+
+<p-dialog [(visible)]="delete_dialog" [modal]="true" [responsive]="true" [width]="400" [contentStyle]="{'max-height':'200px'}">
+    <p-header>
+        Delete this Suspect Criteria
+    </p-header>
+    <div>
+        <span style="font-weight: bold; color: red;">Are you absolutely sure you want to delete this current Suspect Criteria ?</span>
+        <br/><br/>
+        <table>
+            <tr>
+                <td>Data Class name:</td><td style="font-weight: bold;">{{ sc_cur_rec.data_cls_nm }}</td>
+            </tr>
+            <tr>
+                <td>SQL match operator:</td><td style="font-weight: bold;">{{ sc_cur_rec.match_type_opr }}</td>
+            </tr>   
+            <tr>
+                <td>Column name match:</td><td style="font-weight: bold;">{{ sc_cur_rec.match_nm }}</td>
+            </tr>                                 
+        </table>
+    </div>
+    <p-footer>
+            <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa fa-close" (click)="deleteCurrentSc()" label="Delete"></button>
+                    <button type="button" pButton icon="fa fa-check" (click)="cancelCurrentSc()" label="Cancel"></button>
+            </div>
+    </p-footer>
+</p-dialog>

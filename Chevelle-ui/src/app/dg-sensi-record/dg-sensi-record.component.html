@@ -1,0 +1,65 @@
+<div style="background-color: azure; border-radius: 10px; border: 1px solid #808080; width: 93%; min-width: 1440px;">
+  <div style="margin-top: 5px; margin-left: 5px;">Data Governance status: <div style=" display:inline-block; width: 150px;" [ngClass]="setStyleClasses()">&nbsp; {{selected_col.dg_status}} </div></div>
+  <table >
+      <tr>
+          <td class="fixed">Table name:</td><td colspan="3" class="floating"> {{selected_col.table_nm}} </td>
+          <td class="fixed">Column name:</td><td colspan="3" class="floating"><b> {{selected_col.column_nm}} </b></td>
+      </tr>
+      <tr>
+          <td class="fixed">DB name:</td><td colspan="3" class="floating"> {{selected_col.db_nm}} </td>
+          <td class="fixed">Hive schema:</td><td colspan="3" class="floating"> {{selected_col.schema_nm}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Table ID: </td><td colspan="3" class="floating"> {{selected_col.table_id}} </td>
+          <td class="fixed">Column ID:</td><td colspan="3" class="floating"> {{selected_col.col_id}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Profile start: </td><td colspan="3" class="floating"> {{selected_col.prof_start_ts}} </td>
+          <td class="fixed">Profile end:</td><td colspan="3" class="floating"> {{selected_col.prof_start_ts}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Data Class: </td><td colspan="3" class="floating"> {{selected_col.data_cls_nm}} </td>
+          <td class="fixed">Batch ID:</td><td colspan="3" class="floating"> {{selected_col.batch_id}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Total count:</td><td class="floating"> {{selected_col.tot_row_cnt}} </td>
+          <td class="fixed">Sample count:</td><td class="floating"> {{selected_col.sample_row_cnt}} </td>
+          <td class="fixed">Unique count:</td><td class="floating"> {{selected_col.col_val_uniq_cnt}} </td>
+          <td style="background-color: white; width:130px; font-family: Arial;">Data Class count:</td><td class="floating" style="background-color:lightpink; font-weight: bold;"> {{selected_col.col_val_data_cls_cnt}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Maxim:</td><td class="floating"> {{selected_col.col_max_val}} </td>
+          <td class="fixed">Minim:</td><td class="floating"> {{selected_col.col_min_val}} </td>
+          <td class="fixed">Avg length:</td><td class="floating"> {{selected_col.col_avg_len}} </td>
+          <td class="fixed"> Data Class %:</td><td class="floating" style="background-color:lightpink; font-weight: bold;">{{ selected_col.col_val_data_cls_percent }} %</td>
+      </tr>
+      <tr>
+          <td class="fixed">Created by:</td><td colspan="3" class="floating"> {{selected_col.crt_by}} </td>
+          <td class="fixed">Created TS:</td><td colspan="3" class="floating"> {{selected_col.crt_ts}} </td>
+      </tr>
+      <tr>
+          <td class="fixed">Data Gov by:</td><td colspan="3" class="floating"> {{selected_col.dg_upd_by}} </td>
+          <td class="fixed">Data Gov TS:</td><td colspan="3" class="floating"> {{selected_col.dg_upd_ts}} </td>
+      </tr>
+  </table>
+
+  <div style="background-color: white; border: 1px solid black; margin-top: 10px; margin-left: 5px; margin-right: 6px; margin-bottom: 15px; padding-top:3px; padding-bottom: 3px;">
+    <div style="display:inline-block" class="fixed">&nbsp;Appl regexp:</div>
+    <div style="display:inline-block; font-family: 'Courier New'; background-color: lightyellow; "> {{selected_col.appl_regex_str}} </div>
+  </div>
+
+
+          <div style="width:15%; display:inline-block; margin-bottom: 15px;">&nbsp;</div>
+
+          <div style="display:inline-block;">
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; margin-right:10px;" (click)="onClickSensitive()" >Save as <b>Protect</b></button>
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; margin-right:10px;" (click)="onClickCleared()" >Save as <b>Clear</b></button>
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; margin-right:10px;" (click)="onRecommendAllPending()" ><b>Recommend</b> all Pending</button>
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px; margin-right:10px;" (click)="onProtectAllPending()" ><b>Protect</b> all Pending</button>
+              <button type="button" style="font-family:Arial; font-size:12pt; border-radius: 3px;" (click)="onClearAllPending()" ><b>Clear</b> all Pending</button>
+          </div>
+
+          <div style="display:inline-block;">&nbsp;</div>
+
+
+</div>

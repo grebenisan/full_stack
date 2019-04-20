@@ -1,0 +1,98 @@
+.parent {
+    width:100%;
+    /*flex-direction:row; */
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    padding-right:5px;
+}
+.fixed {
+    width: 110px;
+    background:white;
+    /* Just so it's visible */
+    font-family: Arial;
+    
+}
+.floating {
+    flex: 1;
+    padding-left:5px;
+    padding-right:2px;
+    width:auto;
+    /* Grow to rest of container */
+    /*background: lightgreen; */
+    /* Just so it's visible */
+    background-color: white;
+    font-family: 'Courier New';
+  }
+.floating2 {
+    flex: 1;
+    padding-left:5px;
+    padding-right:2px;
+    width:calc((100% - 440px)/4);
+    /* Grow to rest of container */
+    /*background: lightgreen; */
+    /* Just so it's visible */
+    background-color: white;
+    font-family: 'Courier New';
+  }
+.text_input {
+    flex: 1;
+    font-family:'Courier New';
+    font-size:12pt;
+    width:100%;
+
+}
+span {
+    display: block;
+    overflow: hidden;
+    padding-right:10px;
+}
+.pending {
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left:3px;
+    padding-right:3px;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    border-radius: 5px; 
+    border: 1px solid #808080;
+
+    background-color: yellow;
+
+    font-family: Verdana;
+    font-weight: bold;
+
+    text-align: center;
+    width: calc(inherit - 2px);
+
+}
+
+table {
+border-collapse: collapse;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-left: 5px;
+margin-right: 5px;
+width: 99%;
+}
+
+table, th, td {
+border: 1px solid lightgray;
+}
+
+.sensitive {
+    background-color: orangered !important;
+    color: black !important;
+}
+
+.cleared {
+    background-color: lime;
+}
+
+.not_reviewed {
+    background-color: yellow;
+}
