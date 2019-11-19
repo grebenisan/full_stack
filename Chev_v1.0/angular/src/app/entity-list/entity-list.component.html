@@ -1,0 +1,66 @@
+<!--
+<div style="margin-top:5px; height:625px;">
+  <p-table [columns]="cols" [value]="ifs_entities" [resizableColumns]="true" columnResizeMode="expand" selectionMode="single" [(selection)]="selectedIfsEntity" dataKey="entity" [scrollable]="true" scrollHeight="600px" [loading]="loading" loadingIcon="fa-spinner" (onRowSelect)="handleRowSelect($event)" [style]="{width:'500px', 'margin-top':'0px', 'font-size':'11pt'}">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+
+          <th pResizableColumn>Entity</th>
+          <th pResizableColumn>IFS</th>
+          <th pResizableColumn>HV Schema</th>
+
+        <th *ngFor="let col of columns" pResizableColumn>
+            {{col.header}}
+           
+        </th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+
+          <td>{{ifsent.entity}}</td>
+          <td>{{ifsent.ifs}}</td>
+          <td>{{ifsent.hv_schema}}</td>
+
+
+        <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+        </td>
+
+      </tr>
+  </ng-template>
+  </p-table>  
+</div>
+
+<div>
+  IFS code: {{ selectedIfs }}<br>
+  Entity code: {{ selectedEntity }}<br>
+  Hv Schema: {{ selectedHvSchema }}
+</div>
+
+-->
+<div style="margin-top:5px; height:625px;">
+  <p-dataTable [value]="table_list" selectionMode="single" [(selection)]="sel_table" dataKey="Id" scrollable="true"  scrollHeight="600px" resizableColumns="true" columnResizeMode="expand" [loading]="loading" loadingIcon="fa-spinner" (onRowSelect)="handleTableSelect($event)" [style]="{'margin-top':'0px', 'font-size':'11pt'}">
+      <p-column field="TableName" header="Table Name" [sortable]="true" [style]="{'width':'250px'}"></p-column>
+      <p-column field="BusinessName" header="Business Name" [sortable]="true" [style]="{'width':'200px'}"></p-column>        
+      <p-column field="SourceTableName" header="Source Table Name" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="Description" header="Description" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="Asms" header="Asms" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="GdapArchLayer" header="Gdap Layer" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="SourcingProject" header="Sourcing Project" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="SubjectArea" header="Subject Area" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="SourceDbName" header="Source DB Name" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="SourceSchemaName" header="Source Schema Name" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="HiveSchema" header="Hive Schema" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="Location" header="Location" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="AutosysJobId" header="Autosys Job Id" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="CreatedBy" header="CreatedBy" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="CreatedDate" header="Created Date" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="UpdatedBy" header="Updated By" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="UpdatedDate" header="Updated Date" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="ImportId" header="Import Id" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="TotalRecords" header="Total Records" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+      <p-column field="TotalRecordsUpdatedDate" header="Total Records Updated Date" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+      <p-column field="Id" header="Id" [sortable]="true" [style]="{'width':'10px'}"></p-column>
+  </p-dataTable>  
+</div>

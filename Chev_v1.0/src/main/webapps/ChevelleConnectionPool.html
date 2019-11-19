@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ChevelleConnectionPoolServlet</title>
+        <script>
+            function OnRefreshStatus() {
+                document.getElementById("action_type").value = "refresh"; 
+                document.getElementById("form_connection_pool").submit();
+            
+            } 
+
+            function OnReloadEnvironment() { 
+                document.getElementById("action_type").value = "reload"; 
+                document.getElementById("form_connection_pool").submit();
+            } 
+        </script>
+</head>
+<body>
+    <h3>Servlet ChevelleConnectionPool</h3>
+
+    <p>The currently running environment of the Chevelle Connection Pooling is: </p>
+    <form id="form_connection_pool" name="form_connection_pool" method="post" action="/ChevelleConnectionPool">
+
+        <div>
+            For re-loading the most updated environment, enter the authorization code:<br />
+            <textarea id='auth_code' name='auth_code' style="width:700px; height:200px; font-family:'Courier New'; font-size:11pt; white-space: pre; overflow-wrap: normal; overflow: scroll; "></textarea>
+        </div>
+        <div style="text-align: center; width: 700px; margin-top: 10px;">
+            <input id="action_type" name="action_type" type="hidden" value="refresh" />
+            <input id="get_refresh" type="button" value="Refresh status" onclick="OnRefreshStatus()" />
+            <input id="post_set" type="button" value="Reload Chevelle ENV" disabled onClick='OnReloadEnvironment()' /> 
+
+        </div>
+
+
+
+    </form>
+</body>
+</html>

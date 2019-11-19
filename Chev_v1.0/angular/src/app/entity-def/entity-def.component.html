@@ -1,0 +1,52 @@
+<!--
+<div style="height:800px;">
+    <p-table [columns]="cols" [value]="entity_def_cols" selectionMode="single" [(selection)]="sel_entity_cols" dataKey="col_name" [scrollable]="true"  scrollHeight="780px" [resizableColumns]="true" columnResizeMode="expand" [loading]="loading" loadingIcon="fa-spinner" (onRowSelect)="handleRowSelect($event)" [style]="{'margin-top':'0px', 'font-size':'10pt'}">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+              {{col.header}}
+          </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-entdef let-columns="columns">
+        <tr [pSelectableRow]="entdef">
+          <td *ngFor="let col of columns">
+              {{entdef[col.field]}}
+          </td>
+        </tr>
+    </ng-template>
+    </p-table>  
+  </div>
+
+Selected IFS: {{ cur_ifs }} <br> 
+Selected Entity: {{ cur_entity }} <br>
+Selected Column: {{ sel_col_name }}
+-->
+<div style="height:700px;">
+  <p-dataTable [value]="column_list" selectionMode="single" [(selection)]="sel_column" dataKey="Id" scrollable="true"  scrollHeight="650px" resizableColumns="true" columnResizeMode="expand" [loading]="loading" loadingIcon="fa-spinner" (onRowSelect)="handleColSelect($event)" [style]="{'margin-top':'0px', 'font-size':'10pt'}">
+    <p-column field="ColumnName" header="Column Name" [sortable]="true" [style]="{'width':'200px'}"></p-column>
+    <p-column field="BusinessName" header="Business Name" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="SourceColumnName" header="Source Column Name" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="Description" header="Description" [sortable]="true" [style]="{'width':'105px'}"></p-column>
+    <p-column field="DataType" header="Data Type" [sortable]="true" [style]="{'width':'80px'}"></p-column>
+    <p-column field="DataLength" header="Data Length" [sortable]="true" [style]="{'width':'80px'}"></p-column>
+    <p-column field="IsNullable" header="Is Nullable" [sortable]="true" [style]="{'width':'50px'}"></p-column>
+    <p-column field="IsPrimaryKey" header="Is Primary Key" [sortable]="true" [style]="{'width':'50px'}"></p-column>
+    <p-column field="IsForeignKey" header="Is Foreign Key" [sortable]="true" [style]="{'width':'50px'}"></p-column>
+    <p-column field="IsMultibyte" header="Is Multibyte" [sortable]="true" [style]="{'width':'50px'}"></p-column>
+    <p-column field="IsCertified" header="Is Certified" [sortable]="true" [style]="{'width':'50px'}"></p-column>
+    <p-column field="DataClassification" header="Data Classification" [sortable]="true" [style]="{'width':'170px'}"></p-column>
+    <p-column field="UniqueRecords" header="Unique Records" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="NullRecords" header="Null Records" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="DefaultRecords" header="Default Records" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="MinValue" header="Min Value" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="MaxValue" header="Max Value" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="MeanValue" header="Mean Value" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="StDev" header="Std Dev" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="MinLength" header="Min Length" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="MaxLength" header="Max Length" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="AvgLength" header="Avg Length" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+    <p-column field="StatsUpdatedDate" header="Stats Updated Date" [sortable]="true" [style]="{'width':'180px'}"></p-column>
+    <p-column field="Id" header="Id" [sortable]="true" [style]="{'width':'0px'}"></p-column>    
+</p-dataTable> 
+</div>

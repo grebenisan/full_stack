@@ -1,0 +1,20 @@
+.back_white {
+    background-color: white;
+    width:80%;
+    font-family: 'Courier New';
+    text-align: left;
+}
+
+.bw_2 {
+    background-color: white;
+    width:100%;
+    font-family: 'Courier New';
+    text-align: left;
+}
+.auto-style1 {
+    height: 23px;
+}
+.cell1_with {
+    width:140px;
+   /* text-align: right;  */
+}

@@ -1,0 +1,11 @@
+---
+applications:
+- name: chevelle-test
+  path: target/Chevelle_UI-1.0-SNAPSHOT.war
+  memory: 1G
+  instances: 1
+  routes:
+  - route: chevelle-test.apps.server.domain.com
+  disk_quota: 1G
+  env:
+    CHEVELLE_ENV: TST

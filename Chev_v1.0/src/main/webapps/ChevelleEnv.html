@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ChevelleEnvServlet</title>
+    <script>
+        function OnRefreshStatus() { 
+            // alert("Form status: refresh");
+            document.getElementById("action_type").value = "refresh"; 
+            document.getElementById("form_chevelle_env").submit(); 
+            
+        } 
+
+        function OnChangeEnvironment() 
+        { 
+            // alert("Form status: change"); 
+            document.getElementById("action_type").value = "change"; 
+            document.getElementById("form_chevelle_env").submit(); 
+        } 
+
+    </script>
+</head>
+<body>
+    <h3>Servlet ChevelleEnvServlet</h3>
+    <table>
+        <tr>
+            <td>The current Chevelle Environment is: </td>
+            <td style="font-weight: bold; font-size: 14pt;">...</td>
+        </tr>
+        <tr>
+            <td>The CHEVELLE_ENV initial context is: </td>
+            <td>...</td>
+        </tr>
+        <tr>
+            <td>The CHEVELLE_ENV system variable is:</td>
+            <td>...</td>
+        </tr>
+    </table>
+
+    <br />
+    <form id="form_chevelle_env" name="form_chevelle_env" method="post" action="/ChevelleEnv" >
+
+        <div>SET the currntly running environment: 
+                <select name="cur_env" id="cur_env" style="width:100px; font-family:'Courier New'; font-size:12pt;" >
+                <option selected>DEV</option>
+                <option>TST</option>
+                <option>CRT</option>
+                <option>PRD</option>
+            </select>
+        </div>
+
+        <div>
+            Enter the authorization code:<br />
+            <textarea id='auth_code' name='auth_code' style="width:700px; height:200px; font-family:'Courier New'; font-size:11pt; white-space: pre; overflow-wrap: normal; overflow: scroll; "></textarea>
+        </div>
+        <div style="text-align: center; width: 700px; margin-top: 10px;">
+            <input id="action_type" name="action_type" type="hidden" value="refresh" />
+            <input id="get_refresh" type="button" value="Refresh status" onclick="OnRefreshStatus()" />
+            <input id="post_set" type="button" value="Set current Chevelle ENV" disabled onClick="OnChangeEnvironment()" />
+
+        </div>
+
+
+
+    </form>
+</body>
+</html>

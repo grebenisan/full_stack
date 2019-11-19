@@ -1,0 +1,11 @@
+
+
+<div style="height:650px;">
+  <p-dataTable [value]="regexp_list" selectionMode="single" [(selection)]="selected_regexp" dataKey="RegexpId" scrollable="true"  scrollHeight="600px" resizableColumns="true" columnResizeMode="expand" [loading]="loading" loadingIcon="fa-spinner" (onRowSelect)="handleRowSelect($event)" [style]="{'margin-top':'0px', 'font-size':'10pt'}">
+    <p-column field="RegexpName" header="Regexp name" [sortable]="true" [style]="{'width':'35%', 'min-width':'100px'}"></p-column>
+    <p-column field="Regexp" header="Regexp definition" [sortable]="true" [style]="{'width':'80%'}"></p-column>
+    <p-column field="RegexpId" header="Regexp ID" [sortable]="true" [style]="{'width':'10px'}"></p-column>
+  </p-dataTable> 
+<!-- Selected reg exp id: {{ selected_regexp.RegexpId }} -->
+</div>
+

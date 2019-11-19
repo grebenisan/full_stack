@@ -1,0 +1,49 @@
+<div style="border:1px solid #ddd; padding-top:5px; padding-left:3px; ">
+  <table style="margin-bottom:10px;">
+        <tr>
+            <td>GDAP layer:&nbsp;&nbsp;&nbsp;</td>
+            <td><input type='radio' name='gdap_layer' id='ic' value='IC' [checked]='true' (change)="gdap_layer_change('IC')" />IC&nbsp;&nbsp;</td>
+            <td><input type='radio' name='gdap_layer' id="edge-base" value='EDGE_BASE' style="background-color: white;" (change)="gdap_layer_change('EDGE_BASE')" />EdgeBase&nbsp;&nbsp;</td>
+        </tr>
+  </table>    
+
+  <table>
+      <tr>
+          <td>Search by:</td>
+      <td>
+          <select #searchinit [(ngModel)]="search_by" required name="searchinit" id="searchinit" style="width:100%; font-family:'Courier New'; font-size:12pt;" (change)="onSearchbyChange($event.target.value)">
+              <option *ngFor="let copt of curopts" [value]="copt.val" >
+                  {{ copt.key }}
+              </option>
+          </select>
+      </td>
+      </tr>
+  </table>
+
+  <table>
+      <tr><td>Search value (use * as a wildcard): </td></tr>
+      <tr><td><input [(ngModel)]="search_val" name='search_val' type="text" style="width:320px; font-family:'Courier New'; font-size:11pt;"/> </td></tr>
+
+    <tr>
+      <td>Records per page:
+        <input type='radio' name='page_size' id='size1' value=200 [checked]='true' (change)="page_size_change(200)"/>200&nbsp;
+        <input type='radio' name='page_size' id="size2" value=500 (change)="page_size_change(500)" />500&nbsp;
+        <input type='radio' name='page_size' id="size3" value=1000 (change)="page_size_change(1000)" />1000&nbsp;
+      </td>
+    </tr>
+
+    <tr>
+        <td>
+          <div style="margin-top:10px;">
+            <button type="button" label="<< Previous" style="margin-left: 10%;" (click)="onClickPrevious()"><< Previous</button>
+            <button type="button" label="Search"  (click)="onClickSearch()">Search</button>
+            <button type="button" label="Next >>" (click)="onClickNext()">Next >></button>
+          </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Current records: {{cur_page_label}}</td>
+    </tr>
+  </table>
+
+</div>

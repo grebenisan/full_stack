@@ -1,0 +1,25 @@
+<table style="width: 100%;">
+  <tr>
+      <td style="width: 60%;"><input type='radio' name='pick-regexp' id='user-regexp' value='user-regexp'  [checked]='true' (change)="Select_regexp_change('user-regexp')" />Enter your own Regular Expression below: 
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Server running this validation: <input type="radio" name="server" id="server_p1" value="p1" checked="checked" (change)="Select_server('p1')"   />PROD 1 &nbsp;&nbsp; <input type="radio" name="server" id="server_p2" value="p2" (change)="Select_server('p2')" />PROD 2</td>
+      <td style="width: 40%; padding-left: 10px;"><input type='radio' name='pick-regexp' id='sel-regexp' value='sel-regexp' (change)="Select_regexp_change('sel-regexp')" />Or select a Regular Expression from the list below:</td>
+  </tr>
+  <tr>
+      <td style="width: 60%;"><input [(ngModel)]="user_regexp" name='user_regexp' type="text" style="width:332px; font-family:'Courier New'; font-size:12pt; font-weight: bold; width: 100%; "/></td>
+      <td style="width: 40%; padding-left: 10px;"><input [(ngModel)]="sel_regexp_def"  name='selected_regexp' type="text" style="width:332px; font-family:'Courier New'; font-size:12pt; font-weight: bold; width: 100%; "/></td>
+  </tr>
+  <tr>
+      <td style="width: 60%;">
+          <div style="width: 100%; ">
+              Enter your own data set here (cut and paste):
+              <div><textarea [(ngModel)]="sample_data" id="user_sample_data" style="width:100%; height:300px; font-family:'Courier New'; font-size:11pt; white-space: pre; overflow-wrap: normal; overflow: scroll; "></textarea></div>
+              <div style="margin-top:10px; margin-bottom:10px;"><button type="button" class="but_normal" [class.but_disabled]="loading"  (click)="ValidateRegexpData()">Validate your Regular Expression against your data sample</button></div>
+              <div *ngIf="loading"><p-progressBar mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar></div>
+              <div><textarea [(ngModel)]="valid_data" id="validation_result" style="width:100%; height:300px; font-family:'Courier New'; font-size:11pt; overflow:scroll; "></textarea></div>
+          </div>
+      </td>
+      <td style="width: 40%; padding-left: 10px;">
+          <app-regexp-list></app-regexp-list>
+      </td>
+  </tr>
+</table>

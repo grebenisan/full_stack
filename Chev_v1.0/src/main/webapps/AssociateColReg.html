@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AssociateColReg driver</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <h4>Driver page for AssociateColRegServlet </h4>
+            <h5>URL: /AssociateColReg</h5>
+
+           <form id="AssociateColReg" name="AssociateColReg" method="post" action="/AssociateColReg">
+<table >
+        <tr>
+            <td>Column ID:</td>
+            <td><input name='ColumnId' type="text" style="width:200px; font-family:'Courier New'; font-size:11pt;"/></td>
+
+        </tr>
+        <tr>
+            <td>Regexp ID:</td>
+            <td><input name='RegexpId' type="text" style="width:200px; font-family:'Courier New'; font-size:11pt;"/></td>
+
+        </tr>
+        <tr>
+            <td>Col-Reg Name:</td>
+            <td><input name='ColRegName' type="text" style="width:350px; font-family:'Courier New'; font-size:11pt;"/></td>
+
+        </tr>
+    </table>
+               
+
+               Format: <select id='format' name='format'><option>json</option><option>text</option></select> <br />
+               <button type='submit' style="margin-left: 125px;" >Associate Column-to-Regular expression</button>
+           </form>
+</html>

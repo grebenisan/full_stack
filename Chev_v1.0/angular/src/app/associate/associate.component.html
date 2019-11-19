@@ -1,0 +1,22 @@
+<div style="border:1px solid #ddd; padding-top:5px; padding-left:3px; width:100%; ">
+  <table style="width: 100%;">
+      <tr>
+          <td style="width: 40%;">Currently selected column:
+              <div style="background-color: lightgray;">Name: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold; background-color: white; ">{{ sel_column.ColumnName }}</span></div>
+              <div style="background-color: lightgray;">Type: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold; background-color: white;">{{ sel_column.DataType }}</span></div>
+              <input id="col_id" name="col_id" type="hidden" />
+          </td>
+          <td style="width: 20%;">
+              <div style="text-align: center; ">Status: {{ ret_stat }}</div>
+              <input id="but_assoc" name="but_assoc" type="button" value="Associate" style="width: 90%; margin-left: 8px; margin-right: 10px; font-size: 12pt; font-weight: bold;" (click)="onClickAssociate(rgxp_def.value)"/>
+              
+          </td>
+          <td style="width: 40%;">Currently selected RegExp:
+              <div style="background-color: lightgray;">Name: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold; background-color: white;">{{ sel_regexp.RegexpName }}</span></div>
+              <div style="background-color: lightgray;"><input #rgxp_def id="rgxp_def" name="rgxp_def" type="text" [(ngModel)]="sel_regexp.Regexp" value="{{ sel_regexp.Regexp }}" style="width: 99%; font-family: 'Courier New'; font-size: 11pt;"/></div>
+              <input id="regexp_id" name="regexp_id" type="hidden" value="{{ sel_regexp.RegexpId }}" />
+          </td>
+      </tr>
+  </table>
+  <input id="assoc_id" name="assoc_id" type="hidden" />
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="view_progress">
+  <p-progressBar class="ui-progressbar-indeterminate" mode="indeterminate" [style]="{'height': '10px'}"></p-progressBar>
+</div>
+<div style="overflow-y: auto; overflow-x: scroll; max-width:75vw ">
+ <table style="width: 100%;  ">
+   <tr style="background-color: lightgray; font-family: Calibri; font-size: 12pt; font-weight:bold;">
+     <td *ngFor="let col_name of sample_columns">
+       {{ col_name.c }}
+     </td>
+   </tr>
+     <tr *ngFor="let sample_rec of sample_data">
+       <td *ngFor="let sample_col of sample_rec">
+         {{ sample_col.c }}
+       </td>
+     </tr>
+ </table>
+</div>

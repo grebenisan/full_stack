@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>GetMaxisTables driver</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <h4>Driver page for GetMaxisTablesServlet </h4>
+            <h5>URL: /GetMaxisTables</h5>
+
+   <form id="getMaxisTables" name="getMaxisTables" method="get" action="/GetMaxisTables">
+    <table style="margin-bottom:10px;">
+          <tr>
+              <td>GDAP Layer:&nbsp;&nbsp;&nbsp;</td>
+              <td><input type='radio' name='gdap_layer' id='ic' value='IC' checked='checked' " />IC&nbsp;&nbsp;</td>
+              <td><input type='radio' name='gdap_layer' id="edge_base" value='EDGE_BASE' />Edge_Base&nbsp;&nbsp;</td>
+          </tr>
+    </table>    
+
+    <table>
+        <tr>
+            <td>Search by:</td>
+        <td>
+            <select name="searchby" required id="searchinit" style="width:260px; font-family:'Courier New'; font-size:12pt;" >
+                <option>TableName</option>
+                <option>BusinessName</option>
+                <option>SourceTableName</option>
+                <option>Asms</option>
+                <option>SourcingProject</option>
+                <option>SubjectArea</option>
+                <option>SourceDbName</option>
+                <option>SourceSchemaName</option>
+                <option>HiveSchema</option>
+                <option>AutosysJobId</option>
+            </select>
+        </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr><td>Search value (use * as a wildcard): </td></tr>
+        <tr><td><input name='searchval' type="text" style="width:332px; font-family:'Courier New'; font-size:11pt;"/> </td></tr>
+    </table>
+
+    <table>
+        <tr>
+              <td>Page size:</td>
+              <td><input type='radio' name='page_size' id='size1' value='200' checked='checked' />200&nbsp;</td>
+              <td><input type='radio' name='page_size' id="size2" value='500' />500&nbsp;</td>
+              <td><input type='radio' name='page_size' id="size3" value='1000' />1000&nbsp;</td>
+        </tr>
+        <tr>
+              <td>Offset:&nbsp;&nbsp;&nbsp;</td>
+              <td><input name='offset' id='offset' type='text' style="width:60px; font-family:'Courier New'; font-size:11pt;"/></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>    Format: <select id='format' name='format'><option>json</option><option>text</option></select></td>
+        </tr>
+        <tr>
+            
+            <td>
+                <div style="margin-top:10px;">
+                    <button type='submit' style="margin-left: 125px;" >Get Tables</button>
+                 </div>
+            </td>
+        </tr>
+    </table>
+       </form>
+
+    </body>
+</html>

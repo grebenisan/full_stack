@@ -1,0 +1,24 @@
+<div>
+  <table style="width: 100%;">
+    <tr>
+        <td style="width: 70%; background-color: lightgray; font-family: Verdana;">Current table selection:
+            <div style="background-color: whitesmoke; font-family: Verdana;">Name: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold;">{{ cur_entity }}</span></div>
+            <div style="background-color: whitesmoke; font-family: Verdana;">Location: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold;">{{ cur_hdfs_loc }}</span></div>
+        </td>
+        <td style="width: 30%;">
+            <!-- <div style="text-align: left; ">Hadoop layer: <span style="font-family: 'Courier New'; font-size: 12pt; font-weight: bold;">{{ cur_hdfs_layer }}</span></div> -->
+            <div>Server:&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='server_src' id='P1' value='P1' [checked]='true' (change)="server_src_change('P1')" />P1&nbsp;&nbsp;
+                    <input type='radio' name='server_src' id="P2" value='P2' (change)="server_src_change('P2')" />P2               
+            </div>
+            <div>No of Records:
+                    <input type='radio' name='rec_cnt' id='id_20' value='20' [checked]='true' (change)="rec_cnt_change('20')" />20&nbsp;&nbsp;
+                    <input type='radio' name='rec_cnt' id="id_50" value='50' (change)="rec_cnt_change('50')" />50&nbsp;&nbsp;               
+                    <input type='radio' name='rec_cnt' id="id_100" value='100' (change)="rec_cnt_change('100')" />100            
+                </div>
+
+            <input id="but_sample" name="but_sample" type="button" value="Get sample data" style="width: 99%; margin-left: 2px; margin-right: 2px; font-size: 12pt; font-weight: normal;" (click)="onGetSampleData()"/>
+        </td>
+    </tr>
+</table>
+</div>

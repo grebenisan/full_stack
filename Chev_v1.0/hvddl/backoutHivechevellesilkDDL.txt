@@ -1,0 +1,3 @@
+#!/bin/sh
+
+hive -e "drop table if exists CHEVELLE.HYPER_PRFL_SILK;"
